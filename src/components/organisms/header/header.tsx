@@ -1,5 +1,5 @@
 import { forwardRef, ComponentProps } from "react";
-import { MagnifyingGlassIcon, EllipsisVerticalIcon } from "@heroicons/react/24/outline";
+import { HEADER_ICONS } from "constants/images";
 
 export interface HeaderProps extends Omit<ComponentProps<"header">, "className"> {
   title: string;
@@ -9,17 +9,17 @@ export interface HeaderProps extends Omit<ComponentProps<"header">, "className">
     avatarUrl?: string;
   };
   onSearch?: (query: string) => void;
-  onUserMenuClick?: () => void;
+  onBellClick?: () => void;
 }
 
 const Header = forwardRef<HTMLElement, HeaderProps>(
   (
     {
       title,
-      searchPlaceholder = "Search Reports",
+      searchPlaceholder = "Search HNIs, Reports",
       user,
       onSearch,
-      onUserMenuClick,
+      onBellClick,
       ...rest
     },
     ref
@@ -27,49 +27,33 @@ const Header = forwardRef<HTMLElement, HeaderProps>(
     return (
       <header
         ref={ref}
-        className="bg-white border-b border-gray-200 flex items-center justify-between px-6 py-4 relative shrink-0 w-full h-[72px]"
+        className="bg-white border-b border-[#f1f4f9] flex items-center justify-between pl-7 pr-5 py-3 relative shrink-0 w-full"
         {...rest}
       >
-        <h1 className="text-[#2e518a] text-[22px] font-semibold leading-[1.25] text-center text-nowrap">
+        <h1 className="text-[#2f5491] text-lg font-semibold leading-[1.3] text-nowrap">
           {title}
         </h1>
-        <div className="flex gap-4 items-center relative shrink-0">
-          <div className="relative">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-gray-400 pointer-events-none" />
+        <div className="flex gap-[14px] items-center justify-end relative shrink-0">
+          <div className="border border-[#cbd5e1] border-solid flex gap-2 h-9 items-center px-3 py-0 rounded-[10px] w-[420px]">
+            <div className="relative shrink-0 size-5">
+              <img alt="Search" className="block max-w-none size-full" src={HEADER_ICONS.SEARCH} />
+            </div>
             <input
               type="text"
               placeholder={searchPlaceholder}
               onChange={(e) => onSearch?.(e.target.value)}
-              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-[300px]"
+              className="flex-1 text-[#878d99] text-sm leading-6 bg-transparent border-0 outline-none"
             />
           </div>
-          {user && (
-            <div className="flex gap-3 items-center relative shrink-0">
-              {user.avatarUrl ? (
-                <img
-                  alt={user.name}
-                  src={user.avatarUrl}
-                  className="size-10 rounded-full"
-                />
-              ) : (
-                <div className="size-10 rounded-full bg-gray-300 flex items-center justify-center">
-                  <span className="text-gray-600 text-sm font-medium">
-                    {user.name.charAt(0).toUpperCase()}
-                  </span>
-                </div>
-              )}
-              <span className="text-gray-700 text-sm font-medium">
-                {user.name}
-              </span>
-              <button
-                onClick={onUserMenuClick}
-                className="p-1 hover:bg-gray-100 rounded"
-                aria-label="User menu"
-              >
-                <EllipsisVerticalIcon className="size-5 text-gray-600" />
-              </button>
+          <button
+            onClick={onBellClick}
+            className="border border-[#cbd5e1] border-solid flex items-center justify-center rounded-[10px] shrink-0 size-9 hover:bg-gray-50 transition-colors"
+            aria-label="Notifications"
+          >
+            <div className="relative shrink-0 size-5">
+              <img alt="Bell" className="block max-w-none size-full" src={HEADER_ICONS.BELL} />
             </div>
-          )}
+          </button>
         </div>
       </header>
     );
@@ -79,4 +63,5 @@ const Header = forwardRef<HTMLElement, HeaderProps>(
 Header.displayName = "Header";
 
 export default Header;
+
 

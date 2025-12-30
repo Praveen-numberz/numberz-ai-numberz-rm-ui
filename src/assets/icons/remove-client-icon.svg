@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Red filled box with rounded corners -->
+  <rect x="0" y="0" width="22" height="22" rx="2" fill="#EF4E4E"/>
+  <!-- White X mark inside - centered -->
+  <g transform="translate(5, 5)">
+    <path d="M3.30078 3.30078L8.70051 8.70051" stroke="white" stroke-width="1.09091" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3.30078 8.69922L8.70051 3.29949" stroke="white" stroke-width="1.09091" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

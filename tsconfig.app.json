@@ -26,7 +26,9 @@
       "app/*": ["src/app/*"],
       "components/*": ["src/components/*"],
       "hooks/*": ["src/hooks/*"],
-      "constants/*": ["src/constants/*"]
+      "constants/*": ["src/constants/*"],
+      "lib/*": ["src/lib/*"],
+      "assets/*": ["src/assets/*"]
     }
   },
   "include": ["src"]

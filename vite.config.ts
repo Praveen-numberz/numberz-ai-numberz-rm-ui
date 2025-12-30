@@ -14,6 +14,8 @@ export default defineConfig(() => {
         components: resolve(__dirname, "src", "components"),
         hooks: resolve(__dirname, "src", "hooks"),
         constants: resolve(__dirname, "src", "constants"),
+        lib: resolve(__dirname, "src", "lib"),
+        assets: resolve(__dirname, "src", "assets"),
       },
     },
   };
