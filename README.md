@@ -113,3 +113,4 @@ Go to [Vercel](https://vercel.com/new) and select your repository, Vercel will d
 I have created several React apps recently. Setting the configs up is kinda the bottleneck for me to make the ideas simply come true within a very short time.
 
 So I made this starter template for myself to create apps more easily, along with some good practices that I have learned from making those apps. Feel free to tweak it or even maintains your own forks.
+# numberz-ai-numberz-rm-ui
